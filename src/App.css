@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Manrope:wght@800&display=swap');
+
 body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -18,9 +21,8 @@ body {
 .content {
   position: absolute;
   z-index: 99;
-  top: 50%;
+  top: 10%;
   left: 35%;
-  background-color: red;
   width: clamp(1rem, 40vw, 33rem);
 }
 
@@ -29,35 +31,107 @@ h1 {
   font-size: 3rem;
 }
 
-input {
-  width: 94.7%;
-  height: 4rem;
-  font-size: 1.3rem;
-  padding-left: 1.5rem;
-  padding-right: 0px;
+form {
+  position: relative;
 }
 
-ul {
-  padding: 0px;
+input {
+  width: 91.6%;
+  height: 4rem;
+  font-size: 1.3rem;
+  padding-left: 3.8rem;
+  padding-right: 0px;
+  border: transparent;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+form > button {
+  position: absolute;
+  left: 3.3%;
+  top: 25%;
+  background-color: black;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 100%;
+  border: solid 1px hsl(0, 0%, 83%);
+  background-color: hsl(236, 33%, 99%);
+}
+
+.list {
+  box-shadow: 0px 70px 100px 10px rgb(221, 221, 221);
+  background-color: white;
+  margin: 0px;
+  width: 103%;
+  border-radius: 10px;
 }
 
 .listCircle {
   background-color: black;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   border-radius: 100%;
+  border: solid 1px hsl(0, 0%, 85%);
+  background-color: hsl(236, 33%, 99%);
 }
 
-li {
+.listItem {
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
   list-style: none;
   background-color: rgb(255, 255, 255);
-  width: 100%;
+  width: 97%;
   height: 4rem;
+  border-bottom: solid 1px hsl(236, 33%, 90%);
   padding: 0px;
   padding-left: 1rem;
-  margin-bottom: 1rem;
+  color: hsl(235, 19%, 35%);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.info {
+  background-color: white;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  gap: 2rem;
+}
+
+.info > p {
+  color: hsl(236, 33%, 70%);
+}
+
+.interactions {
+  display: flex;
+  gap: 0.2rem;
+  margin-left: 2.2rem;
+}
+
+.interactions > button {
+  background-color: transparent;
+  border: none;
+  color: hsl(236, 33%, 70%);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.clearComp {
+  margin-left: 0.8rem;
+  background-color: transparent;
+  border: none;
+  color: hsl(236, 33%, 70%);
+  font-size: 0.9rem;
+  font-weight: 500;
+} 
+
+button {
+  cursor: pointer;
+
 }
