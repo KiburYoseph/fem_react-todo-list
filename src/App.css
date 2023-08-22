@@ -23,12 +23,13 @@ body {
   z-index: 99;
   top: 10%;
   left: 35%;
-  width: clamp(1rem, 40vw, 33rem);
+  width: clamp(1rem, 100vw, 33rem);
 }
 
 h1 {
   color: white;
   font-size: 3rem;
+  letter-spacing: 1rem;
 }
 
 form {
@@ -36,10 +37,10 @@ form {
 }
 
 input {
-  width: 91.6%;
+  width: 88.6%;
   height: 4rem;
-  font-size: 1.3rem;
-  padding-left: 3.8rem;
+  font-size: 1rem;
+  padding-left: 4.8rem;
   padding-right: 0px;
   border: transparent;
   margin-bottom: 1rem;
@@ -67,12 +68,26 @@ form > button {
 }
 
 .listCircle {
-  background-color: black;
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 100%;
   border: solid 1px hsl(0, 0%, 85%);
-  background-color: hsl(236, 33%, 99%);
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
+}
+
+.completedCircletrue {
+  background-image: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  transition: 300ms;
+}
+
+.listCircle > img {
+  width: 50%;
+  transition: 300ms;
 }
 
 .listItem {
@@ -80,7 +95,7 @@ form > button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 2rem;
   list-style: none;
   background-color: rgb(255, 255, 255);
   width: 97%;
@@ -89,8 +104,31 @@ form > button {
   padding: 0px;
   padding-left: 1rem;
   color: hsl(235, 19%, 35%);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: 300ms;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  margin-left: auto;
+  margin-right: 1rem;
+  opacity: 0;
+  transition: 400ms;
+}
+
+.deleteBtn > img {
+  width: 1.1rem;
+}
+
+.listItem:hover .deleteBtn {
+  opacity: 1;
+}
+
+.completedtrue {
+  text-decoration: line-through;
+  color: rgb(175, 175, 175);
 }
 
 .info {
@@ -102,16 +140,19 @@ form > button {
   padding-left: 1.3rem;
   padding-right: 1.3rem;
   gap: 2rem;
+  transition: 300ms;
 }
 
 .info > p {
   color: hsl(236, 33%, 70%);
+  transition: 300ms;
 }
 
 .interactions {
   display: flex;
   gap: 0.2rem;
   margin-left: 2.2rem;
+  transition: 300ms;
 }
 
 .interactions > button {
@@ -120,6 +161,11 @@ form > button {
   color: hsl(236, 33%, 70%);
   font-size: 0.9rem;
   font-weight: 700;
+  transition: 300ms;
+}
+
+button:hover {
+  color: hsl(220, 98%, 61%);
 }
 
 .clearComp {
@@ -129,9 +175,9 @@ form > button {
   color: hsl(236, 33%, 70%);
   font-size: 0.9rem;
   font-weight: 500;
+  transition: 300ms;
 } 
 
 button {
   cursor: pointer;
-
 }
