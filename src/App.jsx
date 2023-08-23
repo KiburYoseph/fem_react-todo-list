@@ -94,13 +94,19 @@ const App = () => {
             
             <section className={`info dark${dark}`}>
               <p>{(todos.filter(todo => todo.completed != true)).length} items left</p>
-              <div className={`interactions dark${dark}`}>
+              <div className={`interactions inside dark${dark}`}>
                 <button onClick={() => setListState('all')} className={`dark${dark}`} >All</button>
                 <button onClick={() => setListState('active')} className={`dark${dark}`}>Active</button>
                 <button onClick={() => setListState('completed')} className={`dark${dark}`}>Completed</button>
               </div>
                 <button className={`clearComp dark${dark}`} onClick={() => clearCompleted()}>Clear Completed</button>
             </section>
+            
+          </div>
+          <div className={`interactions outside dark${dark}`}>
+                <button onClick={() => setListState('all')} className={`dark${dark}`} >All</button>
+                <button onClick={() => setListState('active')} className={`dark${dark}`}>Active</button>
+                <button onClick={() => setListState('completed')} className={`dark${dark}`}>Completed</button>
           </div>
           
         </section>

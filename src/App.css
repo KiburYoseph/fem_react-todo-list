@@ -30,10 +30,55 @@ body {
   width: clamp(1rem, 100vw, 33rem);
 }
 
+.interactions.outside {
+  margin-top: 3rem;
+  background-color: rgb(255, 255, 255);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: clamp(27rem, 50vw, 34rem);
+  height: 3rem;
+  position: relative;
+  right: 0%;
+  top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.interactions.outside.darktrue {
+  background-color: hsl(235, 24%, 19%);
+}
+
+@media (max-width:1050px) {
+  .content {
+    left: 25%;
+  }
+  .deleteBtn {
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width:650px) {
+  .content {
+    left: 10%;
+  }
+  .inside {
+    display: none !important;
+  }
+  .info {
+    justify-content: space-between !important;
+  }
+  .interactions.outside {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+  }
+}
+
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: clamp(25.2rem, 50vw, 34rem);
 }
 
 .top > img {
@@ -52,6 +97,7 @@ h1 {
 form {
   position: relative;
   transition: 300ms;
+  width: clamp(25.2rem, 48vw, 33rem);
 }
 
 input {
@@ -93,7 +139,7 @@ input.darktrue {
   box-shadow: 0px 70px 100px 10px rgb(221, 221, 221);
   background-color: white;
   margin: 0px;
-  width: 103%;
+  width: clamp(27rem, 50vw, 34rem);
   border-radius: 10px;
 }
 
@@ -182,7 +228,7 @@ input.darktrue {
 
 .info {
   background-color: white;
-  width: 92.3%;
+  width: 91%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
