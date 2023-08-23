@@ -5,8 +5,8 @@ body {
   padding: 0px;
   min-height: 100vh;
   font-family: 'Josefin Sans', sans-serif;
+  transition: 300ms;
 }
-
 
 .main {
   position: relative;
@@ -18,12 +18,29 @@ body {
   height: 20rem;
 }
 
+.hero.darktrue {
+  background-image: url(src/assets/bg-desktop-dark.jpg);
+}
+
 .content {
   position: absolute;
   z-index: 99;
   top: 10%;
   left: 35%;
   width: clamp(1rem, 100vw, 33rem);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top > img {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: 300ms;
 }
 
 h1 {
@@ -34,6 +51,7 @@ h1 {
 
 form {
   position: relative;
+  transition: 300ms;
 }
 
 input {
@@ -45,9 +63,16 @@ input {
   border: transparent;
   margin-bottom: 1rem;
   border-radius: 4px;
+  transition: 300ms;
+
 }
 
-form > button {
+input.darktrue {
+  background-color: hsl(235, 24%, 19%);
+  color: white;
+}
+
+.inputButton {
   position: absolute;
   left: 3.3%;
   top: 25%;
@@ -59,12 +84,21 @@ form > button {
   background-color: hsl(236, 33%, 99%);
 }
 
+.inputButton.darktrue {
+  background-color: transparent;
+  border: solid 1px hsl(237, 14%, 26%);
+}
+
 .list {
   box-shadow: 0px 70px 100px 10px rgb(221, 221, 221);
   background-color: white;
   margin: 0px;
   width: 103%;
   border-radius: 10px;
+}
+
+.list.darktrue {
+  background-color: hsl(235, 24%, 19%);
 }
 
 .listCircle {
@@ -77,6 +111,11 @@ form > button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 300ms;
+}
+
+.listCircle.darktrue {
+  border: solid 1px hsl(237, 14%, 26%);
   transition: 300ms;
 }
 
@@ -109,6 +148,12 @@ form > button {
   transition: 300ms;
 }
 
+.listItem.darktrue {
+  background-color: hsl(235, 24%, 19%);
+  border-bottom: solid 1px  hsl(237, 14%, 26%);
+  color: hsl(234, 39%, 85%);
+}
+
 .deleteBtn {
   background: transparent;
   border: none;
@@ -131,9 +176,13 @@ form > button {
   color: rgb(175, 175, 175);
 }
 
+.completedtrue.darktrue {
+  color: hsl(234, 11%, 52%);
+}
+
 .info {
   background-color: white;
-  width: 90%;
+  width: 92.3%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -141,6 +190,10 @@ form > button {
   padding-right: 1.3rem;
   gap: 2rem;
   transition: 300ms;
+}
+
+.info.darktrue {
+  background-color: hsl(235, 24%, 19%);
 }
 
 .info > p {
@@ -155,6 +208,11 @@ form > button {
   transition: 300ms;
 }
 
+.interactions.darktrue {
+  background-color: hsl(235, 24%, 19%);
+
+}
+
 .interactions > button {
   background-color: transparent;
   border: none;
@@ -166,6 +224,10 @@ form > button {
 
 button:hover {
   color: hsl(220, 98%, 61%);
+}
+
+button.darktrue:hover {
+  color: white;
 }
 
 .clearComp {

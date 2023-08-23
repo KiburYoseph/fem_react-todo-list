@@ -5,6 +5,7 @@ const App = () => {
   const [newItem, setNewItem] = useState('');
   const [todos, setTodos] = useState([]); 
   const [listState, setListState] = useState('all');
+  const [dark, setDark] = useState(true)
 
 
   const handleSumbit = (e) => {
@@ -46,20 +47,25 @@ const App = () => {
     })
   }
 
+  {dark ? document.body.style.backgroundColor = "hsl(235, 24%, 19%)" : document.body.style.backgroundColor = "white"}
+
   return (
     <>
       <main className='main'>
-        <section className='hero'></section>
+        <section className={`hero dark${dark}`}></section>
         <section className='content'>
-          <h1>TODO</h1>
+          <div className='top'>
+            <h1>TODO</h1>
+            <img src={dark ? "src/assets/icon-sun.svg" : "src/assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
+          </div>
           <form onSubmit={handleSumbit}>
-            <input placeholder='Create a new todo' value={newItem} onChange={e => setNewItem(e.target.value)}></input>
-            <button className='inputButton'></button>
+            <input placeholder='Create a new todo' value={newItem} onChange={e => setNewItem(e.target.value)} className={`dark${dark}`}></input>
+            <button className={`inputButton dark${dark}`}></button>
           </form>
-          <div className='list'>
+          <div className={`list dark${dark}`}>
           
           {listState == 'all' ? todos.map(todo => {
-              return <div className={`listItem  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle completedCircle${todo.completed}`}>
+              return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
                 {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
                 </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>          
@@ -68,7 +74,7 @@ const App = () => {
 
             {listState == 'active' ? todos.map(todo => {
               if (todo.completed == false) {
-                return <div className={`listItem  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle completedCircle${todo.completed}`}>
+                return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
               {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
               </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
@@ -78,7 +84,7 @@ const App = () => {
 
             {listState == 'completed' ? todos.map(todo => {
               if (todo.completed == true) {
-                return <div className={`listItem  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle completedCircle${todo.completed}`}>
+                return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
               {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
               </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
@@ -86,14 +92,14 @@ const App = () => {
                 
             }) : null}
             
-            <section className='info'>
-              <p>{todos.length} items left</p>
-              <div className='interactions'>
-                <button onClick={() => setListState('all')}>All</button>
-                <button onClick={() => setListState('active')}>Active</button>
-                <button onClick={() => setListState('completed')}>Completed</button>
+            <section className={`info dark${dark}`}>
+              <p>{(todos.filter(todo => todo.completed != true)).length} items left</p>
+              <div className={`interactions dark${dark}`}>
+                <button onClick={() => setListState('all')} className={`dark${dark}`} >All</button>
+                <button onClick={() => setListState('active')} className={`dark${dark}`}>Active</button>
+                <button onClick={() => setListState('completed')} className={`dark${dark}`}>Completed</button>
               </div>
-                <button className='clearComp' onClick={() => clearCompleted()}>Clear Completed</button>
+                <button className={`clearComp dark${dark}`} onClick={() => clearCompleted()}>Clear Completed</button>
             </section>
           </div>
           
