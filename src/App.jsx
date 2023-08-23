@@ -47,7 +47,7 @@ const App = () => {
     })
   }
 
-  {dark ? document.body.style.backgroundColor = "hsl(235, 24%, 19%)" : document.body.style.backgroundColor = "white"}
+  {dark ? document.body.style.backgroundColor = "hsl(235, 21%, 11%)" : document.body.style.backgroundColor = "white"}
 
   return (
     <>

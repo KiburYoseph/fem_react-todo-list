@@ -99,6 +99,7 @@ input.darktrue {
 
 .list.darktrue {
   background-color: hsl(235, 24%, 19%);
+  box-shadow: none;
 }
 
 .listCircle {
@@ -130,7 +131,6 @@ input.darktrue {
 }
 
 .listItem {
-  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
