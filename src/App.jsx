@@ -1,9 +1,14 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 const App = () => {
   const [newItem, setNewItem] = useState('');
-  const [todos, setTodos] = useState([]); 
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS")
+    if (localValue == null) return []
+    
+    return JSON.parse(localValue)
+  }); 
   const [listState, setListState] = useState('all');
   const [dark, setDark] = useState(true)
 
@@ -66,6 +71,12 @@ const App = () => {
 
 
   {dark ? document.body.style.backgroundColor = "hsl(235, 21%, 11%)" : document.body.style.backgroundColor = "white"}
+
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
+  }, [todos])
+
 
   return (
     <>
