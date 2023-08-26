@@ -168,6 +168,7 @@ input.darktrue {
 
 .completedCircletrue {
   background-image: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: none !important;
   transition: 300ms;
 }
 
@@ -288,4 +289,10 @@ button.darktrue:hover {
 
 button {
   cursor: pointer;
+}
+
+h4 {
+  text-align: center;
+  color: hsl(236, 33%, 75%);
+  margin-top: 2rem;
 }

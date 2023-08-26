@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 
 const App = () => {
@@ -47,6 +47,24 @@ const App = () => {
     })
   }
 
+  let dragItem = useRef(null)
+  let dragOverItem = useRef(null)
+
+  const handleSort = () => {
+
+    let _todos = [...todos]
+
+    const draggedItemContent = _todos.splice(dragItem.current, 1)[0]
+
+    _todos.splice(dragOverItem.current, 0, draggedItemContent)
+
+    dragItem.current = null
+    dragOverItem.current = null
+
+    setTodos(_todos)
+  }
+
+
   {dark ? document.body.style.backgroundColor = "hsl(235, 21%, 11%)" : document.body.style.backgroundColor = "white"}
 
   return (
@@ -65,7 +83,11 @@ const App = () => {
           <div className={`list dark${dark}`}>
           
           {listState == 'all' ? todos.map(todo => {
-              return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
+              return <div className={`listItem dark${dark}  completed${todo.completed}`} draggable 
+              onDragStart={(e) => dragItem.current = todos.indexOf(todo)} 
+              onDragEnter={(e) => {dragOverItem.current = todos.indexOf(todo)}}
+              onDragEnd={handleSort}
+              key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
                 {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
                 </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>          
@@ -74,7 +96,11 @@ const App = () => {
 
             {listState == 'active' ? todos.map(todo => {
               if (todo.completed == false) {
-                return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
+                return <div className={`listItem dark${dark}  completed${todo.completed}`} draggable
+                onDragStart={(e) => dragItem.current = todos.indexOf(todo)}
+                onDragEnter={(e) => dragOverItem.current = todos.indexOf(todo)}
+                onDragEnd={handleSort}
+                key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
               {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
               </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
@@ -84,7 +110,11 @@ const App = () => {
 
             {listState == 'completed' ? todos.map(todo => {
               if (todo.completed == true) {
-                return <div className={`listItem dark${dark}  completed${todo.completed}`} key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
+                return <div className={`listItem dark${dark} completed${todo.completed}`} draggable 
+                onDragStart={(e) => dragItem.current = todos.indexOf(todo)}
+                onDragEnter={(e) => dragOverItem.current = todos.indexOf(todo)}
+                onDragEnd={handleSort}
+                key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
               {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
               </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
@@ -100,14 +130,17 @@ const App = () => {
                 <button onClick={() => setListState('completed')} className={`dark${dark}`}>Completed</button>
               </div>
                 <button className={`clearComp dark${dark}`} onClick={() => clearCompleted()}>Clear Completed</button>
+                
             </section>
             
           </div>
+          
           <div className={`interactions outside dark${dark}`}>
                 <button onClick={() => setListState('all')} className={`dark${dark}`} >All</button>
                 <button onClick={() => setListState('active')} className={`dark${dark}`}>Active</button>
                 <button onClick={() => setListState('completed')} className={`dark${dark}`}>Completed</button>
           </div>
+          <h4>Drag and drop to reorder list</h4>
           
         </section>
 
