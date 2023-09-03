@@ -84,8 +84,8 @@ const App = () => {
         <section className={`hero dark${dark}`}></section>
         <section className='content'>
           <div className='top'>
-            <h1>NOOOOOOOOOOOOOOOOo</h1>
-            <img src={dark ? "src/assets/icon-sun.svg" : "src/assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
+            <h1>TODO</h1>
+            <img src={dark ? "./assets/icon-sun.svg" : "./assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
           </div>
           <form onSubmit={handleSumbit}>
             <input placeholder='Create a new todo' value={newItem} onChange={e => setNewItem(e.target.value)} className={`dark${dark}`}></input>
