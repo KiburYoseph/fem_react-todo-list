@@ -1,6 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import moon from './assets/icon-moon.svg'
 import sun from './assets/icon-sun.svg'
+import bgLight from './assets/bg-desktop-light.jpg'
+import bgDark from './assets/bg-desktop-dark.jpg'
+import check from './assets/icon-check.svg'
+import cross from './assets/icon-cross.svg'
+
+
+
 
 import './App.css'
 
@@ -103,8 +110,8 @@ const App = () => {
               onDragEnd={handleSort}
               key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-                {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
-                </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>          
+                {todo.completed ? <img src={check}></img> : null}
+                </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src={cross}></img></button></div>          
 
             })  : null}
 
@@ -116,8 +123,8 @@ const App = () => {
                 onDragEnd={handleSort}
                 key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-              {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
-              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>  
+              {todo.completed ? <img src={check}></img> : null}
+              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src={cross}></img></button></div>  
               }
                 
             }) : null}
@@ -130,8 +137,8 @@ const App = () => {
                 onDragEnd={handleSort}
                 key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-              {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
-              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>  
+              {todo.completed ? <img src={check}></img> : null}
+              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src={cross}></img></button></div>  
               }
                 
             }) : null}
