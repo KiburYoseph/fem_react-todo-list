@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import moon from './assets/icon-moon.svg'
 import sun from './assets/icon-sun.svg'
-import bgLight from './assets/bg-desktop-light.jpg'
-import bgDark from './assets/bg-desktop-dark.jpg'
 import check from './assets/icon-check.svg'
 import cross from './assets/icon-cross.svg'
 
