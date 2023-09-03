@@ -84,7 +84,7 @@ const App = () => {
         <section className={`hero dark${dark}`}></section>
         <section className='content'>
           <div className='top'>
-            <h1>TODO</h1>
+            <h1>NOOOOOOOOOOOOOOOOo</h1>
             <img src={dark ? "src/assets/icon-sun.svg" : "src/assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
           </div>
           <form onSubmit={handleSumbit}>
