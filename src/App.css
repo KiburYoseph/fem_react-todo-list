@@ -13,13 +13,13 @@ body {
 }
 
 .hero {
-  background-image: url(./assets/bg-desktop-light.jpg);
+  background-image: url(./src/assets/bg-desktop-light.jpg);
   background-size: cover;
   height: 20rem;
 }
 
 .hero.darktrue {
-  background-image: url(./assets/bg-desktop-dark.jpg);
+  background-image: url(./src/assets/bg-desktop-dark.jpg);
 }
 
 .content {
