@@ -85,7 +85,7 @@ const App = () => {
         <section className='content'>
           <div className='top'>
             <h1>TODO</h1>
-            <img src={dark ? "../assets/icon-sun.svg" : "../assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
+            <img src={dark ? "./assets/icon-sun.svg" : "./assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
           </div>
           <form onSubmit={handleSumbit}>
             <input placeholder='Create a new todo' value={newItem} onChange={e => setNewItem(e.target.value)} className={`dark${dark}`}></input>
@@ -100,8 +100,8 @@ const App = () => {
               onDragEnd={handleSort}
               key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-                {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
-                </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>          
+                {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
+                </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>          
 
             })  : null}
 
@@ -113,8 +113,8 @@ const App = () => {
                 onDragEnd={handleSort}
                 key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-              {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
-              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
+              {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
+              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>  
               }
                 
             }) : null}
@@ -127,8 +127,8 @@ const App = () => {
                 onDragEnd={handleSort}
                 key={todo.id} onClick={() => toggleTodo(todo.id, todo.completed)}><div className={`listCircle dark${dark} completedCircle${todo.completed}`}>
                 
-              {todo.completed ? <img src='src/assets/icon-check.svg'></img> : null}
-              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./src/assets/icon-cross.svg'></img></button></div>  
+              {todo.completed ? <img src='./assets/icon-check.svg'></img> : null}
+              </div> {todo.title} <button className='deleteBtn' onClick={() => deleteTodo(todo.id)}><img src='./assets/icon-cross.svg'></img></button></div>  
               }
                 
             }) : null}
