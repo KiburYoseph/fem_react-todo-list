@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
+import moon from './assets/icon-moon.svg'
+import sun from './assets/icon-sun.svg'
+
 import './App.css'
 
 const App = () => {
@@ -85,7 +88,7 @@ const App = () => {
         <section className='content'>
           <div className='top'>
             <h1>TODO</h1>
-            <img src={dark ? "./assets/icon-sun.svg" : "./assets/icon-moon.svg"} onClick={() => setDark(dark => !dark)}></img>
+            <img src={dark ? `${moon}` : `${sun}`} onClick={() => setDark(dark => !dark)}></img>
           </div>
           <form onSubmit={handleSumbit}>
             <input placeholder='Create a new todo' value={newItem} onChange={e => setNewItem(e.target.value)} className={`dark${dark}`}></input>
